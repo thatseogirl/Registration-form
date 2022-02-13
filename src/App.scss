@@ -2,6 +2,7 @@
 @use "./scss/mixins";
 @use "./scss/signup";
 @use "./scss/login";
+@use "./scss/userdetails";
 
 *,
 *::after,
@@ -24,12 +25,6 @@ body {
   gap: 5px;
   margin-top: 10px;
   font-size: 13px;
-}
-.Admin {
-  padding: 10px;
-  width: 18rem;
-  margin: auto;
-  top: 80px;
 }
 .error {
   color: red;

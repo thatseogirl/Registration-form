@@ -1,3 +1,6 @@
+@use "./variables" as myVariable;
+@use "./mixins";
+
 .signUp {
   margin: auto;
   background-color: myVariable.$bg-form;
@@ -21,6 +24,7 @@
   &_header {
     font-size: 20px;
     margin-top: 20px;
+    text-align: center;
     @include mixins.respond(small) {
       font-size: 15px;
     }
