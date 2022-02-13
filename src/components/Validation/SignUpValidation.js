@@ -1,4 +1,3 @@
-
 function SignUpValidation(formvalue) {
     let errors = {};
     if (!formvalue.Firstname) {

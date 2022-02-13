@@ -1,0 +1,44 @@
+.signUp {
+  margin: auto;
+  background-color: myVariable.$bg-form;
+  border-radius: myVariable.$border-radius;
+  max-width: 25%;
+  height: 85vh;
+  padding: 15px;
+  margin-top: 80px;
+  @include mixins.respond(large) {
+    max-width: 40%;
+  }
+  @include mixins.respond(medium) {
+    min-width: 40%;
+    height: 90vh;
+  }
+  @include mixins.respond(small) {
+    min-width: 80%;
+    height: 90vh;
+    margin-top: 40px;
+  }
+  &_header {
+    font-size: 20px;
+    margin-top: 20px;
+    @include mixins.respond(small) {
+      font-size: 15px;
+    }
+    &_form {
+      margin-top: 30px;
+      &_control {
+        border: 0;
+        border-bottom: 1px solid black;
+        padding: 0;
+        margin-bottom: 25px;
+        &_button {
+          background-color: myVariable.$button;
+          border: 0;
+          &:hover {
+            background-color: myVariable.$button !important;
+          }
+        }
+      }
+    }
+  }
+}

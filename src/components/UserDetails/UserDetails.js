@@ -5,7 +5,6 @@ import { Card } from "react-bootstrap";
 export default function UserDetails() {
   const UserDetailsRetrived = localStorage.getItem('userData');
   const parsedUserDetailData = JSON.parse(UserDetailsRetrived);
-  console.log(parsedUserDetailData.Firstname)
   return (
     <Card className="Admin">
       <Card.Body>

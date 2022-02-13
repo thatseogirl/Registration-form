@@ -1,8 +1,6 @@
-import { useState, useEffect, React } from 'react'
+import { useState, React } from 'react'
 import { Link } from "react-router-dom"
 import { Form, Button } from "react-bootstrap"
-//import { ReCAPTCHA } from 'react-google-recaptcha-enterprise';
-
 import SignUpValidation from "../Validation/SignUpValidation"
 
 export default function SignUp() {
@@ -15,36 +13,24 @@ export default function SignUp() {
         confirmPassword: "",
     });
 
-    useEffect(() => {
-        window.onloadCallback = () => { };
-    })
-
     const handleChange = (event) => {
         setFormValue({
             ...formvalue,
             [event.target.name]: (event.target.value)
         }, [formvalue]);
     }
-
-
     const [errors, setErrors] = useState({});
 
     const handleClick = (event) => {
 
         const errors = SignUpValidation(formvalue);
-
         if (Object.keys(errors).length > 0) {
             event.preventDefault();
             setErrors(errors);
             return false;
         }
-
         localStorage.setItem("userData", JSON.stringify(formvalue));
     }
-
-    // const onChange = value => {
-    //     console.log("Captcha value:", value);
-    // }
 
     return (
         <div className="signUp">
@@ -100,10 +86,6 @@ export default function SignUp() {
                         placeholder="Repeat your password" />
                     {errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
                 </Form.Group>
-
-                {/* <ReCAPTCHA 
-                sitekey="6Lfl0nQeAAAAAKtUB_LhVqWK-hASsGcerYWtX78u" 
-                onChange={handleChange}/> */}
 
                 <div className="d-grid gap-2">
                     <Button type="submit"

@@ -1,4 +1,3 @@
-
 export default function LoginValidation(data) {
     const LoginErrors = {};
     if(!data.email){
