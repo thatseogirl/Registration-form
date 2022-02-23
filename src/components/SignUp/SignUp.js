@@ -11,8 +11,16 @@ export default function SignUp() {
     confirmEmail: "",
     password: "",
     confirmPassword: "",
+    existingUser: "",
   });
 
+  const userEmail = [{
+      user: {
+      email: ""
+    }
+    
+    }
+  ]
   const handleChange = (event) => {
     setFormValue(
       {
@@ -23,7 +31,7 @@ export default function SignUp() {
     );
   };
   const [errors, setErrors] = useState({});
-
+  
   const handleClick = (event) => {
     const errors = SignUpValidation(formvalue);
     if (Object.keys(errors).length > 0) {
@@ -32,7 +40,16 @@ export default function SignUp() {
       return false;
     }
     localStorage.setItem("userData", JSON.stringify(formvalue));
-  };
+
+    const signUpData = localStorage.getItem("userData");
+    const existingUserData = JSON.parse(signUpData);
+      if(existingUserData.email === formvalue.email){
+      errors.existingUser= "Account already exist,Login";
+      event.preventDefault();
+      setErrors(errors);
+      }
+    };
+
   const handleLogin = () => {};
 
   return (
@@ -103,6 +120,7 @@ export default function SignUp() {
             className="signUp_header_form_control"
             placeholder="Repeat your password"
           />
+           
         </Form.Group>
       </Form>
       <Link to="/Login" onClick={handleClick}>
@@ -110,6 +128,9 @@ export default function SignUp() {
           Create Account
         </Button>
       </Link>
+      {errors.existingUser && (
+            <span className="userError">{errors.existingUser}</span>
+            )}
       <div className="navigationLink">
         <p>Already have an account?</p>
         <Link
