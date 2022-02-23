@@ -13,7 +13,10 @@ export default function UserDetails() {
           Welcome to your admin account.
     </Card.Text>
         <Link to="/Login"
-          style={{ textDecoration: 'none' }}
+          style={{
+            textDecoration: 'none',
+            color: '#4A87CA'
+          }}
         >Sign out.
           </Link>
       </Card.Body>

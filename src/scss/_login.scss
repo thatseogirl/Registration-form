@@ -5,7 +5,7 @@
     background-color: myVariable.$bg-form;
     border-radius: myVariable.$border-radius;
     max-width: 25%;
-    height: 50vh;
+    // height: 45vh;
     padding: 15px;
     margin-top: 80px;
     @include mixins.respond(large) {
@@ -17,8 +17,8 @@
     }
     @include mixins.respond(small) {
       min-width: 80%;
-      height: 90vh;
-      margin-top: 40px;
+      height: 40vh;
+      margin-top: 60px;
     }
     &_header {
       font-size: 20px;
@@ -28,20 +28,36 @@
         font-size: 15px;
       }
       &_form {
-        margin-top: 30px;
+        height: 120px;
         &_control {
           border: 0;
           border-bottom: 1px solid black;
           padding: 0;
           margin-bottom: 25px;
           &_button {
-            background-color: myVariable.$button;
-            border: 0;
+            background-color: myVariable.$button!important;
+            width: 100%;
+            height: 50px;
+            text-transform: uppercase;
+            text-align: center;
+            font-size: 13px;
+            font-weight: bold;
+            border-radius: 5px!important;
+            outline: none!important;
+            box-shadow: none!important;
             &:hover {
-              background-color: myVariable.$button !important;
+              background-color: myVariable.$buttonHover !important;
+              color:myVariable.$text;
             }
           }
         }
       }
     }
+  }
+  .createAccount {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 13px;
   }

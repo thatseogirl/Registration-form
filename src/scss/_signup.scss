@@ -1,25 +1,26 @@
 @use "./variables" as myVariable;
 @use "./mixins";
-
+ 
 .signUp {
   margin: auto;
   background-color: myVariable.$bg-form;
   border-radius: myVariable.$border-radius;
-  max-width: 25%;
-  height: 85vh;
+  max-width: 23%;
+  // height: 75vh;
   padding: 15px;
-  margin-top: 80px;
+  margin-top: 50px;
   @include mixins.respond(large) {
-    max-width: 40%;
+    min-width: 35%;
+    height: 60vh;
   }
   @include mixins.respond(medium) {
-    min-width: 40%;
-    height: 90vh;
+    min-width: 60%;
+    height: 55vh;
   }
   @include mixins.respond(small) {
     min-width: 80%;
-    height: 90vh;
-    margin-top: 40px;
+    height: 60vh;
+    margin-top: 80px;
   }
   &_header {
     font-size: 20px;
@@ -29,20 +30,37 @@
       font-size: 15px;
     }
     &_form {
-      margin-top: 30px;
+      height: 320px;
       &_control {
         border: 0;
         border-bottom: 1px solid black;
         padding: 0;
         margin-bottom: 25px;
         &_button {
-          background-color: myVariable.$button;
-          border: 0;
+          background-color: myVariable.$button!important;
+          width: 90%;
+          height: 50px;
+          margin-left: 15px;
+          text-transform: uppercase;
+          text-align: center;
+          font-size: 13px;
+          font-weight: bold;
+          border-radius: 5px!important;
+          outline: none!important;
+          box-shadow: none!important;
           &:hover {
-            background-color: myVariable.$button !important;
+            background-color: myVariable.$buttonHover !important;
+              color:myVariable.$text;
           }
         }
       }
     }
   }
+}
+.navigationLink{
+  margin-top: 10px;
+  display: flex;
+ gap: 10px;
+ justify-content: center;
+ font-size: 13px;
 }
