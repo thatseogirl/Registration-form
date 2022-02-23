@@ -6,7 +6,6 @@
   background-color: myVariable.$bg-form;
   border-radius: myVariable.$border-radius;
   max-width: 23%;
-  // height: 75vh;
   padding: 15px;
   margin-top: 50px;
   @include mixins.respond(large) {

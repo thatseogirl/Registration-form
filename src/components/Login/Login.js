@@ -17,7 +17,8 @@ export default function Login() {
   const [errors, setErrors] = useState({});
 
   const handleClick = (event) => {
-    const errors = LoginValidation(data);
+    const errors = LoginValidation(data); 
+
     if (Object.keys(errors).length > 0) {
       event.preventDefault();
       setErrors(errors);
@@ -25,13 +26,17 @@ export default function Login() {
     }
 
     const userDataRetrieved = localStorage.getItem("userData");
+
     const parsedUserData = JSON.parse(userDataRetrieved);
-    if (
-      parsedUserData.email !== data.email ||
-      parsedUserData.password !== data.password
-    ) {
+    if (parsedUserData.email !== data.email) {
+      errors.email = "Invalid email";
       event.preventDefault();
-      return;
+      setErrors(errors);
+
+    } else if (parsedUserData.password !== data.password) {
+        errors.password = "Password not recognised";
+        event.preventDefault();
+        setErrors(errors);
     }
   };
 
@@ -63,11 +68,7 @@ export default function Login() {
       </Form>
 
       <Link to="/UserDetails" onClick={handleClick}>
-        <Button
-          type="submit"
-          className="login_header_form_control_button"
-          size="lg"
-        >
+        <Button type="submit" className="login_header_form_control_button">
           Log In
         </Button>
       </Link>

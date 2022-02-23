@@ -1,63 +1,63 @@
 @use "./variables" as myVariable;
 @use "./mixins";
-.login{
-    margin: auto;
-    background-color: myVariable.$bg-form;
-    border-radius: myVariable.$border-radius;
-    max-width: 25%;
-    // height: 45vh;
-    padding: 15px;
-    margin-top: 80px;
-    @include mixins.respond(large) {
-      max-width: 40%;
-    }
-    @include mixins.respond(medium) {
-      min-width: 40%;
-      height: 90vh;
-    }
+.login {
+  margin: auto;
+  background-color: myVariable.$bg-form;
+  border-radius: myVariable.$border-radius;
+  max-width: 25%;
+  padding: 15px;
+  margin-top: 80px;
+  @include mixins.respond(large) {
+    max-width: 40%;
+  }
+  @include mixins.respond(medium) {
+    min-width: 40%;
+    height: 90vh;
+  }
+  @include mixins.respond(small) {
+    min-width: 80%;
+    height: 40vh;
+    margin-top: 60px;
+  }
+  &_header {
+    font-size: 20px;
+    margin-top: 20px;
+    text-align: center;
     @include mixins.respond(small) {
-      min-width: 80%;
-      height: 40vh;
-      margin-top: 60px;
+      font-size: 15px;
     }
-    &_header {
-      font-size: 20px;
-      margin-top: 20px;
-      text-align: center;
-      @include mixins.respond(small) {
-        font-size: 15px;
-      }
-      &_form {
-        height: 120px;
-        &_control {
-          border: 0;
-          border-bottom: 1px solid black;
-          padding: 0;
-          margin-bottom: 25px;
-          &_button {
-            background-color: myVariable.$button!important;
-            width: 100%;
-            height: 50px;
-            text-transform: uppercase;
-            text-align: center;
-            font-size: 13px;
-            font-weight: bold;
-            border-radius: 5px!important;
-            outline: none!important;
-            box-shadow: none!important;
-            &:hover {
-              background-color: myVariable.$buttonHover !important;
-              color:myVariable.$text;
-            }
+    &_form {
+      height: 120px;
+      &_control {
+        border: 0;
+        border-bottom: 1px solid black;
+        padding: 0;
+        margin-bottom: 25px;
+        &_button {
+          background-color: myVariable.$button !important;
+          width: 90%;
+          height: 50px;
+          text-transform: uppercase;
+          text-align: center;
+          font-size: 13px;
+          font-weight: bold;
+          margin-left: 15px;
+          border-radius: 5px !important;
+          outline: none !important;
+          box-shadow: none !important;
+          &:hover {
+            background-color: myVariable.$buttonHover !important;
+            color: myVariable.$text;
           }
         }
       }
     }
   }
-  .createAccount {
-    display: flex;
-    gap: 5px;
-    justify-content: center;
-    margin-top: 10px;
-    font-size: 13px;
-  }
+}
+.createAccount {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  margin-top: 10px;
+  font-size: 13px;
+}

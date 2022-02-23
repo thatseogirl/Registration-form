@@ -106,10 +106,7 @@ export default function SignUp() {
         </Form.Group>
       </Form>
       <Link to="/Login" onClick={handleClick}>
-        <Button
-          type="submit"
-          className="signUp_header_form_control_button"
-        >
+        <Button type="submit" className="signUp_header_form_control_button">
           Create Account
         </Button>
       </Link>
