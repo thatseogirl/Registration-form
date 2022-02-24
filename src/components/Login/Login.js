@@ -2,6 +2,7 @@ import { useState, React } from "react";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import LoginValidation from "../Validation/LoginValidation";
+
 export default function Login() {
   const [data, setData] = useState({
     email: "",
@@ -17,7 +18,7 @@ export default function Login() {
   const [errors, setErrors] = useState({});
 
   const handleClick = (event) => {
-    const errors = LoginValidation(data); 
+    const errors = LoginValidation(data);
 
     if (Object.keys(errors).length > 0) {
       event.preventDefault();
@@ -32,11 +33,10 @@ export default function Login() {
       errors.email = "Invalid email";
       event.preventDefault();
       setErrors(errors);
-
     } else if (parsedUserData.password !== data.password) {
-        errors.password = "Password not recognised";
-        event.preventDefault();
-        setErrors(errors);
+      errors.password = "Password not recognised";
+      event.preventDefault();
+      setErrors(errors);
     }
   };
 
