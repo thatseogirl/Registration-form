@@ -32,15 +32,21 @@ export default function SignUp() {
       return false;
     }
 
-    localStorage.setItem("userData", JSON.stringify(formvalue));
-
     const signUpData = localStorage.getItem("userData");
-    const existingUserData = JSON.parse(signUpData);
-    if (existingUserData.email === formvalue.email) {
-      errors.existingUser = "Account already exist,Login";
-      event.preventDefault();
-      setErrors(errors);
+
+    if (signUpData !== null) {
+    
+      const existingUserData = JSON.parse(signUpData);
+
+      if (existingUserData.email === formvalue.email) {
+        errors.existingUser = "Account already exists. Please Login";
+        event.preventDefault();
+        setErrors(errors);
+        return;
+      }
     }
+
+    localStorage.setItem("userData", JSON.stringify(formvalue));
   };
 
   const handleLogin = () => {};
